@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from challenge import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^urlinfo/1/(?P<url>.*)', views.safety_check)
 ]
