@@ -22,6 +22,10 @@ class Command(BaseCommand):
             if not line.startswith('\n'):
                 line = '//{0}'.format(line)
                 _, hostname, path, _, query, _ = urlparse(line)
+                if query:
+                    query_list = query.split('&')
+                    query_list.sort()
+                    query = '&'.join(query_list)
                 if path == '':
                     path = '/'
                 if ':' in hostname:

@@ -22,6 +22,7 @@ def normalize_query(request):
     q_list = []
     for q in query.items():
         q_list.append('{0}={1}'.format(q[0], q[1]))
+    q_list.sort()
     query = '&'.join(q_list)
     return query
 
